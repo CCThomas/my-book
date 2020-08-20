@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import com.github.ccthomas.mybook.models.user.Role;
 import com.github.ccthomas.mybook.models.user.User;
 import com.github.ccthomas.mybook.service.UserService;
 import org.junit.Before;
@@ -15,10 +16,15 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 
+import java.util.List;
+
 public class UserControllerTest {
 
     @InjectMocks
     UserController userController;
+
+    @Mock
+    Role role;
 
     @Mock
     User user;
@@ -45,6 +51,29 @@ public class UserControllerTest {
         // verify
         assertEquals(HttpStatus.OK, actual);
         verify(userService).deleteById(id);
+    }
+
+    @Test
+    public void deleteRole() {
+        // exercise
+        HttpStatus actual = userController.deleteRoleById(id);
+
+        // verify
+        assertEquals(HttpStatus.OK, actual);
+        verify(userService).deleteRoleById(id);
+    }
+
+    @Test
+    public void findRoleAll() {
+        // setup
+        when(userService.findRoleAll()).thenReturn(List.of(role));
+
+        // exercise
+        List<Role> actual = userController.findRoleAll();
+
+        // verify
+        assertEquals(List.of(role), actual);
+        verify(userService).findRoleAll();
     }
 
     @Test
@@ -84,5 +113,18 @@ public class UserControllerTest {
         // verify
         assertEquals(user, actual);
         verify(userService).save(user);
+    }
+
+    @Test
+    public void saveRole() {
+        // setup
+        when(userService.saveRole(role)).thenReturn(role);
+
+        // exercise
+        Role actual = userController.saveRole(role);
+
+        // verify
+        assertEquals(role, actual);
+        verify(userService).saveRole(role);
     }
 }

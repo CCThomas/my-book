@@ -1,6 +1,8 @@
 package com.github.ccthomas.mybook.service.impl;
 
+import com.github.ccthomas.mybook.models.user.Role;
 import com.github.ccthomas.mybook.models.user.User;
+import com.github.ccthomas.mybook.repository.RoleRepository;
 import com.github.ccthomas.mybook.repository.UserRepository;
 import com.github.ccthomas.mybook.service.UserService;
 import org.slf4j.Logger;
@@ -8,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -32,6 +35,10 @@ public class UserServiceExistingDB implements UserService {
      */
     public static final long STARTING_ID = 0l;
     public static Long previousGeneratedId;
+    public static Long previousRoleGeneratedId;
+
+    @Autowired
+    private RoleRepository roleRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -40,6 +47,18 @@ public class UserServiceExistingDB implements UserService {
     public void deleteById(long id) {
         LOGGER.info("Deleting user with id={}", id);
         userRepository.deleteById(id);
+    }
+
+    @Override
+    public void deleteRoleById(long id) {
+        LOGGER.info("Deleting role with id={}", id);
+        roleRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Role> findRoleAll() {
+        LOGGER.info("Find all roles");
+        return roleRepository.findAll();
     }
 
     @Override
@@ -97,5 +116,34 @@ public class UserServiceExistingDB implements UserService {
 
         LOGGER.info("Saving user={}", user);
         return userRepository.save(user);
+    }
+
+    @Override
+    public Role saveRole(Role role) {
+        LOGGER.info("Saving role={}", role);
+
+        if (role == null) {
+            throw new IllegalStateException("User is null");
+        } else if (role.getId() != null) {
+            LOGGER.info("Updating existing User");
+            return roleRepository.save(role);
+        } else if (role.getTitle() == null || role.getTitle().isBlank()) {
+            throw new IllegalStateException("Title is null or blank. username=" + role.getTitle());
+        } else if (roleRepository.findByTitle(role.getTitle()).isPresent()) {
+            throw new IllegalStateException("Username already exists");
+        }
+
+        if (previousRoleGeneratedId == null) {
+            LOGGER.info("Previously Generated Id is null");
+            Optional<Role> optionalExistingRole = roleRepository.findFirstByOrderByIdDesc();
+            previousGeneratedId = optionalExistingRole.isPresent() ? optionalExistingRole.get().getId() : STARTING_ID;
+        }
+
+        LOGGER.info("Setting Generated Id");
+        previousGeneratedId++;
+        role.setId(previousGeneratedId);
+
+        LOGGER.info("Saving role={}", role);
+        return roleRepository.save(role);
     }
 }

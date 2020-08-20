@@ -1,6 +1,8 @@
 package com.github.ccthomas.mybook.service.impl;
 
+import com.github.ccthomas.mybook.models.user.Role;
 import com.github.ccthomas.mybook.models.user.User;
+import com.github.ccthomas.mybook.repository.RoleRepository;
 import com.github.ccthomas.mybook.repository.UserRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,6 +10,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.List;
 import java.util.Optional;
 
 import static junit.framework.Assert.fail;
@@ -23,10 +26,16 @@ public class UserServiceExistingDBTest {
     UserServiceExistingDB userServiceExistingDB;
 
     @Mock
+    Role role;
+
+    @Mock
     User user;
 
     @Mock
     User existingUser;
+
+    @Mock
+    RoleRepository roleRepository;
 
     @Mock
     UserRepository userRepository;
@@ -51,6 +60,27 @@ public class UserServiceExistingDBTest {
 
         // verify
         verify(userRepository).deleteById(id);
+    }
+
+    @Test
+    public void deleteRoleById() {
+        // exercise
+        userServiceExistingDB.deleteRoleById(id);
+
+        // verify
+        verify(roleRepository).deleteById(id);
+    }
+
+    @Test
+    public void findRoleAll() {
+        // setup
+        when(roleRepository.findAll()).thenReturn(List.of(role));
+
+        // exercise
+        List<Role> actual = userServiceExistingDB.findRoleAll();
+
+        // verify
+        assertEquals(List.of(role), actual);
     }
 
     @Test

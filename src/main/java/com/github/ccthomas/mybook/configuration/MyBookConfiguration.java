@@ -1,4 +1,4 @@
-package com.github.ccthomas.mybook;
+package com.github.ccthomas.mybook.configuration;
 
 import com.github.ccthomas.mybook.service.UserService;
 import com.github.ccthomas.mybook.service.impl.UserServiceExistingDB;
