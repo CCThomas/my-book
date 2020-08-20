@@ -1,11 +1,10 @@
 package com.github.ccthomas.mybook.service;
 
-import com.github.ccthomas.mybook.models.User;
-import javassist.NotFoundException;
+import com.github.ccthomas.mybook.models.user.User;
 import org.springframework.stereotype.Service;
 
 /**
- * CRUD Service for managing Users
+ * CRUD Service for managing {@link User}s
  *
  * @author CCThomas
  */

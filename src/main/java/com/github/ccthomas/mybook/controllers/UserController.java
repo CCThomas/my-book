@@ -1,6 +1,6 @@
 package com.github.ccthomas.mybook.controllers;
 
-import com.github.ccthomas.mybook.models.User;
+import com.github.ccthomas.mybook.models.user.User;
 import com.github.ccthomas.mybook.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +12,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Rest API endpoints for api/user
+ *
+ * <p>
+ * This Controller acts as a bridge between the consumer/UI and the {@link UserService}
+ * </p>
+ *
+ * @author CCThomas
+ */
 @RestController
 @RequestMapping("/user")
 public class UserController {

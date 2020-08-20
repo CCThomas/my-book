@@ -1,6 +1,6 @@
 package com.github.ccthomas.mybook.service.impl;
 
-import com.github.ccthomas.mybook.models.User;
+import com.github.ccthomas.mybook.models.user.User;
 import com.github.ccthomas.mybook.repository.UserRepository;
 import org.junit.Before;
 import org.junit.Test;

@@ -6,25 +6,14 @@ import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.github.ccthomas.mybook.MyBookApplication;
-import com.github.ccthomas.mybook.models.User;
-import com.github.ccthomas.mybook.repository.UserRepository;
+import com.github.ccthomas.mybook.models.user.User;
 import com.github.ccthomas.mybook.service.UserService;
-import com.github.ccthomas.mybook.service.impl.UserServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
 public class UserControllerTest {
 

@@ -1,4 +1,4 @@
-package com.github.ccthomas.mybook.models;
+package com.github.ccthomas.mybook.models.user;
 
 import org.junit.Test;
 
