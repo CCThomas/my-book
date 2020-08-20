@@ -37,7 +37,7 @@ public class BookController {
         return HttpStatus.OK;
     }
 
-    @GetMapping("/find/{id}")
+    @GetMapping("/{id}")
     public Book findById(@PathVariable long id) {
         LOGGER.info("api /book/find/{id} hit with id={}", id);
         return bookService.findById(id);

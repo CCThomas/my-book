@@ -46,13 +46,13 @@ public class UserController {
         return HttpStatus.OK;
     }
 
-    @GetMapping("/roles/findAll")
+    @GetMapping("/roles")
     public List<Role> findRoleAll() {
         LOGGER.info("api /user/find/All");
         return userService.findRoleAll();
     }
 
-    @GetMapping("/find/{id}")
+    @GetMapping("/{id}")
     public User findById(@PathVariable long id) {
         LOGGER.info("api /user/find/{id} hit with id={}", id);
         return userService.findById(id);
