@@ -1,7 +1,6 @@
 package com.github.ccthomas.mybook.configuration;
 
 import com.github.ccthomas.mybook.service.UserService;
-import com.github.ccthomas.mybook.service.impl.UserServiceExistingDB;
 import com.github.ccthomas.mybook.service.impl.UserServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,26 +16,26 @@ public class MyBookConfiguration {
     @Autowired
     private ApplicationArguments args;
 
-    @Bean
-    public UserService userService() {
-        LOGGER.debug("Creating User Service Bean");
-        for (String arg: args.getSourceArgs()) {
-            if (arg.contains("--userService=")) {
-                LOGGER.debug("Application Arguments contains User Service");
-                String implName = arg.replace("--userService=", "");
-                if (UserServiceExistingDB.class.getSimpleName().equals(implName)) {
-                    LOGGER.info("Using UserServiceExistingDB Implementation");
-                    return new UserServiceExistingDB();
-                } else if (UserServiceImpl.class.getSimpleName().equals(implName)) {
-                    LOGGER.info("Using UserServiceImpl Implementation");
-                    return new UserServiceImpl();
-                } else {
-                    LOGGER.warn("Unknown Implementation give with name={}", implName);
-                    break;
-                }
-            }
-        }
-        LOGGER.debug("Defaulting to UserServiceImpl Implementation");
-        return new UserServiceImpl();
-    }
+//    @Bean
+//    public UserService userService() {
+//        LOGGER.debug("Creating User Service Bean");
+//        for (String arg: args.getSourceArgs()) {
+//            if (arg.contains("--userService=")) {
+//                LOGGER.debug("Application Arguments contains User Service");
+//                String implName = arg.replace("--userService=", "");
+//                if (UserServiceExistingDB.class.getSimpleName().equals(implName)) {
+//                    LOGGER.info("Using UserServiceExistingDB Implementation");
+//                    return new UserServiceExistingDB();
+//                } else if (UserServiceImpl.class.getSimpleName().equals(implName)) {
+//                    LOGGER.info("Using UserServiceImpl Implementation");
+//                    return new UserServiceImpl();
+//                } else {
+//                    LOGGER.warn("Unknown Implementation give with name={}", implName);
+//                    break;
+//                }
+//            }
+//        }
+//        LOGGER.debug("Defaulting to UserServiceImpl Implementation");
+//        return new UserServiceImpl();
+//    }
 }
