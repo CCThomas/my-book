@@ -44,6 +44,14 @@ public interface UserService {
     User findById(long id);
 
     /**
+     * Finds a {@link Role} by id.
+     *
+     * @param id {@link Role}'s id.
+     * @return {@link Role} for given id.
+     */
+    Role findRoleById(long id);
+
+    /**
      * Finds a {@link User} by username.
      *
      * @param username {@link User}'s username

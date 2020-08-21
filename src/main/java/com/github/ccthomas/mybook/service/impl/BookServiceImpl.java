@@ -38,8 +38,8 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book save(Book Book) {
-        LOGGER.info("Saving Book={}", Book);
-        return bookRepository.save(Book);
+    public Book save(Book book) {
+        LOGGER.info("Saving Book={}", book);
+        return bookRepository.save(book);
     }
 }

@@ -29,7 +29,6 @@ public class BookControllerTest {
     @Before
     public void before() {
         MockitoAnnotations.initMocks(this);
-        book = new Book();
     }
 
     @Test

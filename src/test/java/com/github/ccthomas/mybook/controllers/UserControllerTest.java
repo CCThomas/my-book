@@ -39,8 +39,6 @@ public class UserControllerTest {
     @Before
     public void before() {
         MockitoAnnotations.initMocks(this);
-        user = new User();
-        user.setUsername(username);
     }
 
     @Test

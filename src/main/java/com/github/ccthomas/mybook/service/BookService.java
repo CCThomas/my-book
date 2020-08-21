@@ -29,9 +29,9 @@ public interface BookService {
     /**
      * Saves a {@link Book}.
      *
-     * @param Book {@link Book} to persist.
+     * @param book {@link Book} to persist.
      * @return Persisted {@link Book}.
      */
-    Book save(Book Book);
+    Book save(Book book);
 
 }

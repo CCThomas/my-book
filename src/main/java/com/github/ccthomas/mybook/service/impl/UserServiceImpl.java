@@ -56,6 +56,20 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Role findRoleById(long id) {
+        LOGGER.info("Finding role with id={}", id);
+        Optional<Role> optionalRole = roleRepository.findById(id);
+        if (optionalRole.isEmpty()) {
+            LOGGER.info("Role does not exist for id=" + id);
+            return null;
+        }
+
+        Role role = optionalRole.get();
+        LOGGER.info("returning role={}", role);
+        return role;
+    }
+
+    @Override
     public User findByUsername(String username) {
         LOGGER.info("Finding user with username={}", username);
         Optional<User> optionalUser = userRepository.findByUsername(username);

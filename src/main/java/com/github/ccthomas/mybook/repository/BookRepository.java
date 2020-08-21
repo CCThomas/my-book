@@ -1,7 +1,6 @@
 package com.github.ccthomas.mybook.repository;
 
 import com.github.ccthomas.mybook.models.book.Book;
-import com.github.ccthomas.mybook.models.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

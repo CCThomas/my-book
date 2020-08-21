@@ -37,6 +37,7 @@ public class UserServiceImplTest {
     UserRepository userRepository;
 
     private final Long id = 1l;
+    private final Long roleId = 2l;
     private final String username = "username";
 
     @Before
@@ -93,6 +94,27 @@ public class UserServiceImplTest {
 
         // exercise & verify
         assertNull(userServiceImpl.findById(id));
+    }
+
+    @Test
+    public void findRoleById() {
+        // setup
+        when(roleRepository.findById(roleId)).thenReturn(Optional.of(role));
+
+        // exercise
+        Role actual = userServiceImpl.findRoleById(roleId);
+
+        // verify
+        assertEquals(role, actual);
+    }
+
+    @Test
+    public void findRoleById_notFound() {
+        // setup
+        when(roleRepository.findById(roleId)).thenReturn(Optional.empty());
+
+        // exercise & verify
+        assertNull(userServiceImpl.findRoleById(id));
     }
 
     @Test
