@@ -1,4 +1,14 @@
 # API Documentation
+- [Root](#root-apis)
+- [Book](#book-apis)
+- [Book To User](#book-to-user-apis)
+- [User](#user-apis)
+
+## Root APIs
+- `/?username={username}`
+  - Index of Application
+  - Query Param: username of user accessing page.
+  - Return: A welcome message
 
 ## Book APIs
 Book JSON

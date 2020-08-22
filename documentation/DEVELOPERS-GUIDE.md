@@ -2,6 +2,9 @@
 
 ## Project Setup
 - ...
+- Front End
+  - The front end was created following the tutorial below
+    - [https://github.com/spring-guides/tut-react-and-spring-data-rest/tree/master/basic](https://github.com/spring-guides/tut-react-and-spring-data-rest/tree/master/basic)
 - Formatting
   - [https://github.com/spring-io/spring-javaformat](https://github.com/spring-io/spring-javaformat)
   - You have two options for running the formatter
