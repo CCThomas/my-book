@@ -70,7 +70,7 @@ public class UserController {
         return userService.save(user);
     }
 
-    @GetMapping("role/save")
+    @GetMapping("/role/save")
     public Role saveRole(@RequestBody Role role) {
         LOGGER.info("api /user/role/save hit with role={}", role);
         return userService.saveRole(role);
