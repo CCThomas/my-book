@@ -1,0 +1,404 @@
+{
+	"info": {
+		"_postman_id": "f64e5f5a-b446-4092-9be4-80542e60db3a",
+		"name": "myProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Book APIs",
+			"item": [
+				{
+					"name": "Save Book",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"title\",\n  \"externalLinks\": [\n      {\n          \"name\": \"name\",\n          \"link\": \"link\"\n      }\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/book/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"book",
+								"save"
+							]
+						},
+						"description": "Saves a Book"
+					},
+					"response": []
+				},
+				{
+					"name": "Find Book By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/book/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"book",
+								"{id}"
+							]
+						},
+						"description": "http://localhost:8081/book/{id}"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Role Access to External Link",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/book/roleAccess/add/{externalAccessId}/{roleId}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"book",
+								"roleAccess",
+								"add",
+								"{externalAccessId}",
+								"{roleId}"
+							]
+						},
+						"description": "http://localhost:8081/book/roleAccess/add/{externalAccessId}/{roleId}"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Role Access from External Link",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/book/roleAccess/remove/{externalAccessId}/{roleId}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"book",
+								"roleAccess",
+								"remove",
+								"{externalAccessId}",
+								"{roleId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Book",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/book/delete/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"book",
+								"delete",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User APIs",
+			"item": [
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/user/delete/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"user",
+								"delete",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Role",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/user/role/delete/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"user",
+								"role",
+								"delete",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Roles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/user/roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"user",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/user/{id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"user",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find User by Username",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/user/findByUsername/{username}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"user",
+								"findByUsername",
+								"{username}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"username\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/user/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"user",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Role",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"username\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/user/role/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"user",
+								"role",
+								"save"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Book To User APIs",
+			"item": [
+				{
+					"name": "Create Book To User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/bookToUser/create/{bookId}/{userId}/{roleId}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"bookToUser",
+								"create",
+								"{bookId}",
+								"{userId}",
+								"{roleId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Book To User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/bookToUser/delete/{Id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"bookToUser",
+								"delete",
+								"{Id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Book To Users by Book Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/bookToUser/bookToUsers/bookId/{Id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"bookToUser",
+								"bookToUsers",
+								"bookId",
+								"{Id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Book To Users by User Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/bookToUser/bookToUsers/userId/{Id}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"bookToUser",
+								"bookToUsers",
+								"userId",
+								"{Id}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
