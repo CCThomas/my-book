@@ -17,21 +17,20 @@ import java.util.Optional;
 @Repository
 public interface BookToUserRepository extends JpaRepository<BookToUser, Long> {
 
-    /**
-     * Find all {@link BookToUser} by {@link Book}'s id
-     *
-     * @param id {@link Book}'s id
-     * @return {@link List} of {@link BookToUser}
-     */
-    List<BookToUser> findAllByBookId(long id);
+	/**
+	 * Find all {@link BookToUser} by {@link Book}'s id
+	 * @param id {@link Book}'s id
+	 * @return {@link List} of {@link BookToUser}
+	 */
+	List<BookToUser> findAllByBookId(long id);
 
-    /**
-     * Find all {@link BookToUser} by {@link User}'s id
-     *
-     * @param id {@link User}'s id
-     * @return {@link List} of {@link BookToUser}
-     */
-    List<BookToUser> findAllByUserId(long id);
+	/**
+	 * Find all {@link BookToUser} by {@link User}'s id
+	 * @param id {@link User}'s id
+	 * @return {@link List} of {@link BookToUser}
+	 */
+	List<BookToUser> findAllByUserId(long id);
 
-    boolean existsByBookIdAndUserIdAndRoleId(long bookId, long userId, long roleId);
+	boolean existsByBookIdAndUserIdAndRoleId(long bookId, long userId, long roleId);
+
 }

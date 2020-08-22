@@ -19,68 +19,72 @@ import java.util.stream.Collectors;
 
 @Service
 public class BookToUserServiceImpl implements BookToUserService {
-    private static Logger LOGGER = LoggerFactory.getLogger(BookServiceImpl.class);
 
-    @Autowired
-    BookToUserRepository bookToUserRepository;
+	private static Logger LOGGER = LoggerFactory.getLogger(BookServiceImpl.class);
 
-    @Autowired
-    BookService bookService;
+	@Autowired
+	BookToUserRepository bookToUserRepository;
 
-    @Autowired
-    UserService userService;
+	@Autowired
+	BookService bookService;
 
-    @Override
-    public BookToUser create(long bookId, long userId, long roleId) {
-        LOGGER.info("Creating book to user with bookId={}, userId={}, and roleId={}", bookId, userId, roleId);
+	@Autowired
+	UserService userService;
 
-        if (bookToUserRepository.existsByBookIdAndUserIdAndRoleId(bookId, userId, roleId)) {
-            throw new IllegalStateException("Book to User Already Exists!");
-        }
+	@Override
+	public BookToUser create(long bookId, long userId, long roleId) {
+		LOGGER.info("Creating book to user with bookId={}, userId={}, and roleId={}", bookId, userId, roleId);
 
-        Book book = bookService.findById(bookId);
-        if (book == null) {
-            throw new IllegalStateException("No book exists for id=" + bookId);
-        }
+		if (bookToUserRepository.existsByBookIdAndUserIdAndRoleId(bookId, userId, roleId)) {
+			throw new IllegalStateException("Book to User Already Exists!");
+		}
 
-        User user = userService.findById(userId);
-        if (user == null) {
-            throw new IllegalStateException("No user exists for id=" + userId);
-        }
+		Book book = bookService.findById(bookId);
+		if (book == null) {
+			throw new IllegalStateException("No book exists for id=" + bookId);
+		}
 
-        Role role = userService.findRoleById(roleId);
-        if (role == null) {
-            throw new IllegalStateException("No role exists for id=" + roleId);
-        }
+		User user = userService.findById(userId);
+		if (user == null) {
+			throw new IllegalStateException("No user exists for id=" + userId);
+		}
 
-        BookToUser bookToUser = new BookToUser();
-        bookToUser.setBook(book);
-        bookToUser.setUser(user);
-        bookToUser.setRole(role);
+		Role role = userService.findRoleById(roleId);
+		if (role == null) {
+			throw new IllegalStateException("No role exists for id=" + roleId);
+		}
 
-        LOGGER.info("Saving BookToUser={}", bookToUser);
-        return bookToUserRepository.save(bookToUser);
-    }
+		BookToUser bookToUser = new BookToUser();
+		bookToUser.setBook(book);
+		bookToUser.setUser(user);
+		bookToUser.setRole(role);
 
-    @Override
-    public void deleteById(long id) {
-        LOGGER.info("Deleting book with id={}", id);
-        bookToUserRepository.deleteById(id);
-    }
+		LOGGER.info("Saving BookToUser={}", bookToUser);
+		return bookToUserRepository.save(bookToUser);
+	}
 
-    @Override
-    public List<BookToUser> findAllByBookId(long id) {
-        LOGGER.info("Find all book to users by book id={}", id);
-        List<BookToUser> bookToUsers = bookToUserRepository.findAllByBookId(id);
-        LOGGER.info("returning book to users=", bookToUsers.stream().map(a -> a.toString()).collect(Collectors.joining(",")));
-        return bookToUsers;
-    }
+	@Override
+	public void deleteById(long id) {
+		LOGGER.info("Deleting book with id={}", id);
+		bookToUserRepository.deleteById(id);
+	}
 
-    @Override
-    public List<BookToUser> findAllByUserId(long id) {
-        LOGGER.info("Find all book to users by user id={}", id);
-        List<BookToUser> bookToUsers = bookToUserRepository.findAllByUserId(id);
-        LOGGER.info("returning book to users=", bookToUsers.stream().map(a -> a.toString()).collect(Collectors.joining(",")));
-        return bookToUsers;
-    }
+	@Override
+	public List<BookToUser> findAllByBookId(long id) {
+		LOGGER.info("Find all book to users by book id={}", id);
+		List<BookToUser> bookToUsers = bookToUserRepository.findAllByBookId(id);
+		LOGGER.info("returning book to users=",
+				bookToUsers.stream().map(a -> a.toString()).collect(Collectors.joining(",")));
+		return bookToUsers;
+	}
+
+	@Override
+	public List<BookToUser> findAllByUserId(long id) {
+		LOGGER.info("Find all book to users by user id={}", id);
+		List<BookToUser> bookToUsers = bookToUserRepository.findAllByUserId(id);
+		LOGGER.info("returning book to users=",
+				bookToUsers.stream().map(a -> a.toString()).collect(Collectors.joining(",")));
+		return bookToUsers;
+	}
+
 }

@@ -17,55 +17,59 @@ import java.util.stream.Collectors;
  */
 @Entity
 public class ExternalLink {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
-    private String link;
-    @OneToMany
-    private List<Role> roleAccess;
 
-    public ExternalLink() {}
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    public Long getId() {
-        return id;
-    }
+	private String name;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	private String link;
 
-    public String getName() {
-        return name;
-    }
+	@OneToMany
+	private List<Role> roleAccess;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public ExternalLink() {
+	}
 
-    public String getLink() {
-        return link;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setLink(String link) {
-        this.link = link;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public List<Role> getRoleAccess() {
-        return roleAccess;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setRoleAccess(List<Role> roleAccess) {
-        this.roleAccess = roleAccess;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    @Override
-    public String toString() {
-        return "ExternalLink{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", link='" + link + '\'' +
-                ", roleAccess='" + (roleAccess == null ? null : roleAccess.stream().map(r -> r.toString()).collect(Collectors.joining(","))) + '\'' +
-                '}';
-    }
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
+	}
+
+	public List<Role> getRoleAccess() {
+		return roleAccess;
+	}
+
+	public void setRoleAccess(List<Role> roleAccess) {
+		this.roleAccess = roleAccess;
+	}
+
+	@Override
+	public String toString() {
+		return "ExternalLink{" + "id=" + id + ", name='" + name + '\'' + ", link='" + link + '\'' + ", roleAccess='"
+				+ (roleAccess == null ? null
+						: roleAccess.stream().map(r -> r.toString()).collect(Collectors.joining(",")))
+				+ '\'' + '}';
+	}
+
 }

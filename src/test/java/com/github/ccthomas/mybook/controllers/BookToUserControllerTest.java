@@ -21,58 +21,62 @@ import static org.mockito.Mockito.when;
 
 public class BookToUserControllerTest {
 
-    @InjectMocks
-    BookToUserController bookToUserController;
+	@InjectMocks
+	BookToUserController bookToUserController;
 
-    @Mock
-    BookToUser bookToUser;
+	@Mock
+	BookToUser bookToUser;
 
-    @Mock
-    BookToUserService bookToUserService;
+	@Mock
+	BookToUserService bookToUserService;
 
-    private final Long id = 1L;
-    private final Long bookId = 2L;
-    private final Long userId = 3L;
-    private final Long roleId = 4L;
+	private final Long id = 1L;
 
-    @Before
-    public void before() {
-        MockitoAnnotations.initMocks(this);
-    }
+	private final Long bookId = 2L;
 
-    @Test
-    public void create() {
-        // setup
-        when(bookToUserService.create(bookId, userId, roleId)).thenReturn(bookToUser);
+	private final Long userId = 3L;
 
-        // exercise & verify
-        assertEquals(bookToUser, bookToUserController.create(bookId, userId, roleId));
-    }
+	private final Long roleId = 4L;
 
-    @Test
-    public void deleteById() {
-        // exercise
-        HttpStatus actual = bookToUserController.deleteById(id);
+	@Before
+	public void before() {
+		MockitoAnnotations.initMocks(this);
+	}
 
-        // verify
-        assertEquals(HttpStatus.OK, actual);
-    }
+	@Test
+	public void create() {
+		// setup
+		when(bookToUserService.create(bookId, userId, roleId)).thenReturn(bookToUser);
 
-    @Test
-    public void findAllByBookId() {
-        // setup
-        when(bookToUserService.findAllByBookId(bookId)).thenReturn(List.of(bookToUser));
+		// exercise & verify
+		assertEquals(bookToUser, bookToUserController.create(bookId, userId, roleId));
+	}
 
-        // exercise & verify
-        assertEquals(List.of(bookToUser), bookToUserController.findAllByBookId(bookId));
-    }
+	@Test
+	public void deleteById() {
+		// exercise
+		HttpStatus actual = bookToUserController.deleteById(id);
 
-    @Test
-    public void findAllByUserId() {
-        // setup
-        when(bookToUserService.findAllByUserId(userId)).thenReturn(List.of(bookToUser));
+		// verify
+		assertEquals(HttpStatus.OK, actual);
+	}
 
-        // exercise & verify
-        assertEquals(List.of(bookToUser), bookToUserController.findAllByUserId(bookId));
-    }
+	@Test
+	public void findAllByBookId() {
+		// setup
+		when(bookToUserService.findAllByBookId(bookId)).thenReturn(List.of(bookToUser));
+
+		// exercise & verify
+		assertEquals(List.of(bookToUser), bookToUserController.findAllByBookId(bookId));
+	}
+
+	@Test
+	public void findAllByUserId() {
+		// setup
+		when(bookToUserService.findAllByUserId(userId)).thenReturn(List.of(bookToUser));
+
+		// exercise & verify
+		assertEquals(List.of(bookToUser), bookToUserController.findAllByUserId(bookId));
+	}
+
 }

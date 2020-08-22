@@ -13,78 +13,80 @@ import static org.mockito.Mockito.when;
 
 public class BookTest {
 
-    @Mock
-    ExternalLink externalLink1;
+	@Mock
+	ExternalLink externalLink1;
 
-    @Mock
-    ExternalLink externalLink2;
+	@Mock
+	ExternalLink externalLink2;
 
-    private final Long id = 1l;
-    private final String title = "title";
+	private final Long id = 1l;
 
-    @Before
-    public void before() {
-        MockitoAnnotations.initMocks(this);
-    }
+	private final String title = "title";
 
-    @Test
-    public void getSetId() {
-        // setup
-        Book book = new Book();
+	@Before
+	public void before() {
+		MockitoAnnotations.initMocks(this);
+	}
 
-        // exercise
-        book.setId(id);
+	@Test
+	public void getSetId() {
+		// setup
+		Book book = new Book();
 
-        // verify
-        assertEquals(id, book.getId());
-    }
+		// exercise
+		book.setId(id);
 
-    @Test
-    public void getSetTitle() {
-        // setup
-        Book book = new Book();
+		// verify
+		assertEquals(id, book.getId());
+	}
 
-        // exercise
-        book.setTitle(title);
+	@Test
+	public void getSetTitle() {
+		// setup
+		Book book = new Book();
 
-        // verify
-        assertEquals(title, book.getTitle());
-    }
+		// exercise
+		book.setTitle(title);
 
-    @Test
-    public void getSetExternalLinks() {
-        // setup
-        Book book = new Book();
+		// verify
+		assertEquals(title, book.getTitle());
+	}
 
-        // exercise
-        book.setExternalLinks(List.of(externalLink1));
+	@Test
+	public void getSetExternalLinks() {
+		// setup
+		Book book = new Book();
 
-        // verify
-        assertEquals(List.of(externalLink1), book.getExternalLinks());
-    }
+		// exercise
+		book.setExternalLinks(List.of(externalLink1));
 
-    @Test
-    public void toString_empty() {
-        // setup
-        String expected = "Book{id=null, title='null', externalLinks=null}";
-        Book book = new Book();
+		// verify
+		assertEquals(List.of(externalLink1), book.getExternalLinks());
+	}
 
-        // exercise & verify
-        assertEquals(expected, book.toString());
-    }
+	@Test
+	public void toString_empty() {
+		// setup
+		String expected = "Book{id=null, title='null', externalLinks=null}";
+		Book book = new Book();
 
-    @Test
-    public void toString_populated() {
-        // setup
-        String expected = "Book{id=1, title='title', externalLinks=[externalLink1,externalLink2]}";
-        Book book = new Book();
-        book.setId(id);
-        book.setTitle(title);
-        book.setExternalLinks(List.of(externalLink1, externalLink2));
-        when(externalLink1.toString()).thenReturn("externalLink1");
-        when(externalLink2.toString()).thenReturn("externalLink2");
+		// exercise & verify
+		assertEquals(expected, book.toString());
+	}
 
-        // exercise & verify
-        assertEquals(expected, book.toString());
-    }
+	@Test
+	public void toString_populated() {
+		// setup
+		String expected = "Book{id=1, title='title', externalLinks=[externalLink1,externalLink2]}";
+		Book book = new Book();
+		book.setId(id);
+		book.setTitle(title);
+		book.setExternalLinks(List.of(externalLink1, externalLink2));
+		when(externalLink1.toString()).thenReturn("externalLink1");
+		when(externalLink2.toString()).thenReturn("externalLink2");
+
+		// exercise & verify
+		assertEquals(expected, book.toString());
+	}
+
 }

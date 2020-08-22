@@ -26,39 +26,44 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/book")
 public class BookController {
-    private static Logger LOGGER = LoggerFactory.getLogger(BookController.class);
 
-    @Autowired
-    BookService bookService;
+	private static Logger LOGGER = LoggerFactory.getLogger(BookController.class);
 
-    @RequestMapping("/delete/{id}")
-    public HttpStatus deleteById(@PathVariable long id) {
-        LOGGER.info("api /book/delete/{id} hit with id={}", id);
-        bookService.deleteById(id);
-        return HttpStatus.OK;
-    }
+	@Autowired
+	BookService bookService;
 
-    @GetMapping("/{id}")
-    public Book findById(@PathVariable long id) {
-        LOGGER.info("api /book/find/{id} hit with id={}", id);
-        return bookService.findById(id);
-    }
+	@RequestMapping("/delete/{id}")
+	public HttpStatus deleteById(@PathVariable long id) {
+		LOGGER.info("api /book/delete/{id} hit with id={}", id);
+		bookService.deleteById(id);
+		return HttpStatus.OK;
+	}
 
-    @GetMapping("/roleAccess/add/{externalAccessId}/{roleId}")
-    public ExternalLink roleAccessAdd(@PathVariable long externalAccessId, @PathVariable long roleId) {
-        LOGGER.info("api /book/roleAccess/add/{externalAccessId}/{roleId} hit with externalAccessId={} and roleId={}", externalAccessId, roleId);
-        return bookService.roleAccessAdd(externalAccessId, roleId);
-    }
+	@GetMapping("/{id}")
+	public Book findById(@PathVariable long id) {
+		LOGGER.info("api /book/find/{id} hit with id={}", id);
+		return bookService.findById(id);
+	}
 
-    @GetMapping("/roleAccess/remove/{externalAccessId}/{roleId}")
-    public ExternalLink roleAccessRemove(@PathVariable long externalAccessId, @PathVariable long roleId) {
-        LOGGER.info("api /book/roleAccess/remove/{externalAccessId}/{roleId} hit with externalAccessId={} and roleId={}", externalAccessId, roleId);
-        return bookService.roleAccessRemove(externalAccessId, roleId);
-    }
+	@GetMapping("/roleAccess/add/{externalAccessId}/{roleId}")
+	public ExternalLink roleAccessAdd(@PathVariable long externalAccessId, @PathVariable long roleId) {
+		LOGGER.info("api /book/roleAccess/add/{externalAccessId}/{roleId} hit with externalAccessId={} and roleId={}",
+				externalAccessId, roleId);
+		return bookService.roleAccessAdd(externalAccessId, roleId);
+	}
 
-    @GetMapping("/save")
-    public Book save(@RequestBody Book book) {
-        LOGGER.info("api /Book/save hit with book={}", book);
-        return bookService.save(book);
-    }
+	@GetMapping("/roleAccess/remove/{externalAccessId}/{roleId}")
+	public ExternalLink roleAccessRemove(@PathVariable long externalAccessId, @PathVariable long roleId) {
+		LOGGER.info(
+				"api /book/roleAccess/remove/{externalAccessId}/{roleId} hit with externalAccessId={} and roleId={}",
+				externalAccessId, roleId);
+		return bookService.roleAccessRemove(externalAccessId, roleId);
+	}
+
+	@GetMapping("/save")
+	public Book save(@RequestBody Book book) {
+		LOGGER.info("api /Book/save hit with book={}", book);
+		return bookService.save(book);
+	}
+
 }

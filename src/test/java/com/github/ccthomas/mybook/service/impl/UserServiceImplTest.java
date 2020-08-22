@@ -1,6 +1,5 @@
 package com.github.ccthomas.mybook.service.impl;
 
-
 import com.github.ccthomas.mybook.models.user.Role;
 import com.github.ccthomas.mybook.models.user.User;
 import com.github.ccthomas.mybook.repository.RoleRepository;
@@ -21,144 +20,147 @@ import static org.mockito.Mockito.when;
 
 public class UserServiceImplTest {
 
-    @InjectMocks
-    UserServiceImpl userServiceImpl;
+	@InjectMocks
+	UserServiceImpl userServiceImpl;
 
-    @Mock
-    Role role;
+	@Mock
+	Role role;
 
-    @Mock
-    User user;
+	@Mock
+	User user;
 
-    @Mock
-    RoleRepository roleRepository;
+	@Mock
+	RoleRepository roleRepository;
 
-    @Mock
-    UserRepository userRepository;
+	@Mock
+	UserRepository userRepository;
 
-    private final Long id = 1l;
-    private final Long roleId = 2l;
-    private final String username = "username";
+	private final Long id = 1l;
 
-    @Before
-    public void before(){
-        MockitoAnnotations.initMocks(this);
-    }
+	private final Long roleId = 2l;
 
-    @Test
-    public void deleteById() {
-        // exercise
-        userServiceImpl.deleteById(id);
+	private final String username = "username";
 
-        // verify
-        verify(userRepository).deleteById(id);
-    }
+	@Before
+	public void before() {
+		MockitoAnnotations.initMocks(this);
+	}
 
-    @Test
-    public void deleteRoleById() {
-        // exercise
-        userServiceImpl.deleteRoleById(id);
+	@Test
+	public void deleteById() {
+		// exercise
+		userServiceImpl.deleteById(id);
 
-        // verify
-        verify(roleRepository).deleteById(id);
-    }
+		// verify
+		verify(userRepository).deleteById(id);
+	}
 
-    @Test
-    public void findRoleAll() {
-        // setup
-        when(roleRepository.findAll()).thenReturn(List.of(role));
+	@Test
+	public void deleteRoleById() {
+		// exercise
+		userServiceImpl.deleteRoleById(id);
 
-        // exercise
-        List<Role> actual = userServiceImpl.findRoleAll();
+		// verify
+		verify(roleRepository).deleteById(id);
+	}
 
-        // verify
-        assertEquals(List.of(role), actual);
-    }
+	@Test
+	public void findRoleAll() {
+		// setup
+		when(roleRepository.findAll()).thenReturn(List.of(role));
 
-    @Test
-    public void findById() {
-        // setup
-        when(userRepository.findById(id)).thenReturn(Optional.of(user));
+		// exercise
+		List<Role> actual = userServiceImpl.findRoleAll();
 
-        // exercise
-        User actual = userServiceImpl.findById(id);
+		// verify
+		assertEquals(List.of(role), actual);
+	}
 
-        // verify
-        assertEquals(user, actual);
-    }
+	@Test
+	public void findById() {
+		// setup
+		when(userRepository.findById(id)).thenReturn(Optional.of(user));
 
-    @Test
-    public void findById_notFound() {
-        // setup
-        when(userRepository.findById(id)).thenReturn(Optional.empty());
+		// exercise
+		User actual = userServiceImpl.findById(id);
 
-        // exercise & verify
-        assertNull(userServiceImpl.findById(id));
-    }
+		// verify
+		assertEquals(user, actual);
+	}
 
-    @Test
-    public void findRoleById() {
-        // setup
-        when(roleRepository.findById(roleId)).thenReturn(Optional.of(role));
+	@Test
+	public void findById_notFound() {
+		// setup
+		when(userRepository.findById(id)).thenReturn(Optional.empty());
 
-        // exercise
-        Role actual = userServiceImpl.findRoleById(roleId);
+		// exercise & verify
+		assertNull(userServiceImpl.findById(id));
+	}
 
-        // verify
-        assertEquals(role, actual);
-    }
+	@Test
+	public void findRoleById() {
+		// setup
+		when(roleRepository.findById(roleId)).thenReturn(Optional.of(role));
 
-    @Test
-    public void findRoleById_notFound() {
-        // setup
-        when(roleRepository.findById(roleId)).thenReturn(Optional.empty());
+		// exercise
+		Role actual = userServiceImpl.findRoleById(roleId);
 
-        // exercise & verify
-        assertNull(userServiceImpl.findRoleById(id));
-    }
+		// verify
+		assertEquals(role, actual);
+	}
 
-    @Test
-    public void findByUsername() {
-        // setup
-        when(userRepository.findByUsername(username)).thenReturn(Optional.of(user));
+	@Test
+	public void findRoleById_notFound() {
+		// setup
+		when(roleRepository.findById(roleId)).thenReturn(Optional.empty());
 
-        // exercise
-        User actual = userServiceImpl.findByUsername(username);
+		// exercise & verify
+		assertNull(userServiceImpl.findRoleById(id));
+	}
 
-        // verify
-        assertEquals(user, actual);
-    }
+	@Test
+	public void findByUsername() {
+		// setup
+		when(userRepository.findByUsername(username)).thenReturn(Optional.of(user));
 
-    @Test
-    public void findByUsername_notFound() {
-        // setup
-        when(userRepository.findByUsername(username)).thenReturn(Optional.empty());
+		// exercise
+		User actual = userServiceImpl.findByUsername(username);
 
-        // exercise & verify
-        assertNull(userServiceImpl.findByUsername(username));
-    }
+		// verify
+		assertEquals(user, actual);
+	}
 
-    @Test
-    public void save() {
-        // setup
-        when(userRepository.save(user)).thenReturn(user);
+	@Test
+	public void findByUsername_notFound() {
+		// setup
+		when(userRepository.findByUsername(username)).thenReturn(Optional.empty());
 
-        // exercise
-        User actual = userServiceImpl.save(user);
+		// exercise & verify
+		assertNull(userServiceImpl.findByUsername(username));
+	}
 
-        // verify
-        assertEquals(user, actual);
-    }
+	@Test
+	public void save() {
+		// setup
+		when(userRepository.save(user)).thenReturn(user);
 
-    @Test
-    public void saveRole() {
-        // setup
-        when(roleRepository.save(role)).thenReturn(role);
+		// exercise
+		User actual = userServiceImpl.save(user);
 
-        // exercise
-        Role actual = userServiceImpl.saveRole(role);
+		// verify
+		assertEquals(user, actual);
+	}
 
-        // verify
-        assertEquals(role, actual);
-    }
+	@Test
+	public void saveRole() {
+		// setup
+		when(roleRepository.save(role)).thenReturn(role);
+
+		// exercise
+		Role actual = userServiceImpl.saveRole(role);
+
+		// verify
+		assertEquals(role, actual);
+	}
+
 }

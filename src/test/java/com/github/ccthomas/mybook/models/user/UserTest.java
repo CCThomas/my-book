@@ -6,52 +6,54 @@ import static org.junit.Assert.assertEquals;
 
 public class UserTest {
 
-    private final Long id = 1l;
-    private final String username = "username";
+	private final Long id = 1l;
 
-    @Test
-    public void getSetId() {
-        // setup
-        User user = new User();
+	private final String username = "username";
 
-        // exercise
-        user.setId(id);
+	@Test
+	public void getSetId() {
+		// setup
+		User user = new User();
 
-        // verify
-        assertEquals(id, user.getId());
-    }
+		// exercise
+		user.setId(id);
 
-    @Test
-    public void getSetUsername() {
-        // setup
-        User user = new User();
+		// verify
+		assertEquals(id, user.getId());
+	}
 
-        // exercise
-        user.setUsername(username);
+	@Test
+	public void getSetUsername() {
+		// setup
+		User user = new User();
 
-        // verify
-        assertEquals(username, user.getUsername());
-    }
+		// exercise
+		user.setUsername(username);
 
-    @Test
-    public void toString_empty() {
-        // setup
-        String expected = "User{id=null, username='null'}";
-        User user = new User();
+		// verify
+		assertEquals(username, user.getUsername());
+	}
 
-        // exercise & verify
-        assertEquals(expected, user.toString());
-    }
+	@Test
+	public void toString_empty() {
+		// setup
+		String expected = "User{id=null, username='null'}";
+		User user = new User();
 
-    @Test
-    public void toString_populated() {
-        // setup
-        String expected = "User{id=1, username='username'}";
-        User user = new User();
-        user.setId(id);
-        user.setUsername(username);
+		// exercise & verify
+		assertEquals(expected, user.toString());
+	}
 
-        // exercise & verify
-        assertEquals(expected, user.toString());
-    }
+	@Test
+	public void toString_populated() {
+		// setup
+		String expected = "User{id=1, username='username'}";
+		User user = new User();
+		user.setId(id);
+		user.setUsername(username);
+
+		// exercise & verify
+		assertEquals(expected, user.toString());
+	}
+
 }

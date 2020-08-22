@@ -15,83 +15,85 @@ import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
-    private static Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 
-    @Autowired
-    private RoleRepository roleRepository;
+	private static Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 
-    @Autowired
-    private UserRepository userRepository;
+	@Autowired
+	private RoleRepository roleRepository;
 
-    @Override
-    public void deleteById(long id) {
-        LOGGER.info("Deleting user with id={}", id);
-        userRepository.deleteById(id);
-    }
+	@Autowired
+	private UserRepository userRepository;
 
-    @Override
-    public void deleteRoleById(long id) {
-        LOGGER.info("Deleting role with id={}", id);
-        roleRepository.deleteById(id);
-    }
+	@Override
+	public void deleteById(long id) {
+		LOGGER.info("Deleting user with id={}", id);
+		userRepository.deleteById(id);
+	}
 
-    @Override
-    public List<Role> findRoleAll() {
-        LOGGER.info("Find all roles");
-        return roleRepository.findAll();
-    }
+	@Override
+	public void deleteRoleById(long id) {
+		LOGGER.info("Deleting role with id={}", id);
+		roleRepository.deleteById(id);
+	}
 
-    @Override
-    public User findById(long id) {
-        LOGGER.info("Finding user with id={}", id);
-        Optional<User> optionalUser = userRepository.findById(id);
-        if (optionalUser.isEmpty()) {
-            LOGGER.info("User does not exist for id=" + id);
-            return null;
-        }
+	@Override
+	public List<Role> findRoleAll() {
+		LOGGER.info("Find all roles");
+		return roleRepository.findAll();
+	}
 
-        User user = optionalUser.get();
-        LOGGER.info("returning user={}", user);
-        return user;
-    }
+	@Override
+	public User findById(long id) {
+		LOGGER.info("Finding user with id={}", id);
+		Optional<User> optionalUser = userRepository.findById(id);
+		if (optionalUser.isEmpty()) {
+			LOGGER.info("User does not exist for id=" + id);
+			return null;
+		}
 
-    @Override
-    public Role findRoleById(long id) {
-        LOGGER.info("Finding role with id={}", id);
-        Optional<Role> optionalRole = roleRepository.findById(id);
-        if (optionalRole.isEmpty()) {
-            LOGGER.info("Role does not exist for id=" + id);
-            return null;
-        }
+		User user = optionalUser.get();
+		LOGGER.info("returning user={}", user);
+		return user;
+	}
 
-        Role role = optionalRole.get();
-        LOGGER.info("returning role={}", role);
-        return role;
-    }
+	@Override
+	public Role findRoleById(long id) {
+		LOGGER.info("Finding role with id={}", id);
+		Optional<Role> optionalRole = roleRepository.findById(id);
+		if (optionalRole.isEmpty()) {
+			LOGGER.info("Role does not exist for id=" + id);
+			return null;
+		}
 
-    @Override
-    public User findByUsername(String username) {
-        LOGGER.info("Finding user with username={}", username);
-        Optional<User> optionalUser = userRepository.findByUsername(username);
-        if (optionalUser.isEmpty()) {
-            LOGGER.info("User does not exist for username=" + username);
-            return null;
-        }
+		Role role = optionalRole.get();
+		LOGGER.info("returning role={}", role);
+		return role;
+	}
 
-        User user = optionalUser.get();
-        LOGGER.info("returning user={}", user);
-        return user;
-    }
+	@Override
+	public User findByUsername(String username) {
+		LOGGER.info("Finding user with username={}", username);
+		Optional<User> optionalUser = userRepository.findByUsername(username);
+		if (optionalUser.isEmpty()) {
+			LOGGER.info("User does not exist for username=" + username);
+			return null;
+		}
 
-    @Override
-    public User save(User user) {
-        LOGGER.info("Saving user={}", user);
-        return userRepository.save(user);
-    }
+		User user = optionalUser.get();
+		LOGGER.info("returning user={}", user);
+		return user;
+	}
 
-    @Override
-    public Role saveRole(Role role) {
-        LOGGER.info("Saving role={}", role);
-        return roleRepository.save(role);
-    }
+	@Override
+	public User save(User user) {
+		LOGGER.info("Saving user={}", user);
+		return userRepository.save(user);
+	}
+
+	@Override
+	public Role saveRole(Role role) {
+		LOGGER.info("Saving role={}", role);
+		return roleRepository.save(role);
+	}
+
 }

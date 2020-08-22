@@ -14,55 +14,55 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 public class BookToUser {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @OneToOne
-    private Book book;
-    @OneToOne
-    private User user;
-    @OneToOne
-    private Role role;
 
-    public Long getId() {
-        return id;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	@OneToOne
+	private Book book;
 
-    public Book getBook() {
-        return book;
-    }
+	@OneToOne
+	private User user;
 
-    public void setBook(Book book) {
-        this.book = book;
-    }
+	@OneToOne
+	private Role role;
 
-    public User getUser() {
-        return user;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public Role getRole() {
-        return role;
-    }
+	public Book getBook() {
+		return book;
+	}
 
-    public void setRole(Role role) {
-        this.role = role;
-    }
+	public void setBook(Book book) {
+		this.book = book;
+	}
 
-    @Override
-    public String toString() {
-        return "BookToUser{" +
-                "id=" + id +
-                ", book=" + book +
-                ", user=" + user +
-                ", role=" + role +
-                '}';
-    }
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	@Override
+	public String toString() {
+		return "BookToUser{" + "id=" + id + ", book=" + book + ", user=" + user + ", role=" + role + '}';
+	}
+
 }

@@ -12,17 +12,17 @@ import java.util.Optional;
  * @author CCThomas
  */
 public interface RoleRepository extends JpaRepository<Role, Long> {
-    /**
-     * Find {@link Role} by title.
-     *
-     * @return {@link Optional} {@link Role}.
-     */
-    Optional<User> findByTitle(String title);
 
-    /**
-     * Find {@link Role} with the highest id value.
-     *
-     * @return {@link Optional} {@link Role}.
-     */
-    Optional<Role> findFirstByOrderByIdDesc();
+	/**
+	 * Find {@link Role} by title.
+	 * @return {@link Optional} {@link Role}.
+	 */
+	Optional<User> findByTitle(String title);
+
+	/**
+	 * Find {@link Role} with the highest id value.
+	 * @return {@link Optional} {@link Role}.
+	 */
+	Optional<Role> findFirstByOrderByIdDesc();
+
 }

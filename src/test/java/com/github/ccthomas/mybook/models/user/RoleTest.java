@@ -6,52 +6,54 @@ import static org.junit.Assert.assertEquals;
 
 public class RoleTest {
 
-    private final Long id = 1l;
-    private final String title = "title";
+	private final Long id = 1l;
 
-    @Test
-    public void getSetId() {
-        // setup
-        Role role = new Role();
+	private final String title = "title";
 
-        // exercise
-        role.setId(id);
+	@Test
+	public void getSetId() {
+		// setup
+		Role role = new Role();
 
-        // verify
-        assertEquals(id, role.getId());
-    }
+		// exercise
+		role.setId(id);
 
-    @Test
-    public void getSetRolename() {
-        // setup
-        Role role = new Role();
+		// verify
+		assertEquals(id, role.getId());
+	}
 
-        // exercise
-        role.setTitle(title);
+	@Test
+	public void getSetRolename() {
+		// setup
+		Role role = new Role();
 
-        // verify
-        assertEquals(title, role.getTitle());
-    }
+		// exercise
+		role.setTitle(title);
 
-    @Test
-    public void toString_empty() {
-        // setup
-        String expected = "Role{id=null, title='null'}";
-        Role role = new Role();
+		// verify
+		assertEquals(title, role.getTitle());
+	}
 
-        // exercise & verify
-        assertEquals(expected, role.toString());
-    }
+	@Test
+	public void toString_empty() {
+		// setup
+		String expected = "Role{id=null, title='null'}";
+		Role role = new Role();
 
-    @Test
-    public void toString_populated() {
-        // setup
-        String expected = "Role{id=1, title='title'}";
-        Role role = new Role();
-        role.setId(id);
-        role.setTitle(title);
+		// exercise & verify
+		assertEquals(expected, role.toString());
+	}
 
-        // exercise & verify
-        assertEquals(expected, role.toString());
-    }
+	@Test
+	public void toString_populated() {
+		// setup
+		String expected = "Role{id=1, title='title'}";
+		Role role = new Role();
+		role.setId(id);
+		role.setTitle(title);
+
+		// exercise & verify
+		assertEquals(expected, role.toString());
+	}
+
 }

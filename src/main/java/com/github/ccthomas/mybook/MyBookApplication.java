@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 @SpringBootApplication
 public class MyBookApplication {
+
 	private static Logger LOGGER = LoggerFactory.getLogger(MyBookApplication.class);
 
 	@Autowired
@@ -20,4 +21,5 @@ public class MyBookApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MyBookApplication.class, args);
 	}
+
 }

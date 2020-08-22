@@ -27,52 +27,54 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-    private static Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
-    @Autowired
-    UserService userService;
+	private static Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
-    @RequestMapping("/delete/{id}")
-    public HttpStatus deleteById(@PathVariable long id) {
-        LOGGER.info("api /user/delete/{id} hit with id={}", id);
-        userService.deleteById(id);
-        return HttpStatus.OK;
-    }
+	@Autowired
+	UserService userService;
 
-    @RequestMapping("/role/delete/{id}")
-    public HttpStatus deleteRoleById(@PathVariable long id) {
-        LOGGER.info("api /user/role/delete/{id} hit with id={}", id);
-        userService.deleteRoleById(id);
-        return HttpStatus.OK;
-    }
+	@RequestMapping("/delete/{id}")
+	public HttpStatus deleteById(@PathVariable long id) {
+		LOGGER.info("api /user/delete/{id} hit with id={}", id);
+		userService.deleteById(id);
+		return HttpStatus.OK;
+	}
 
-    @GetMapping("/roles")
-    public List<Role> findRoleAll() {
-        LOGGER.info("api /user/find/All");
-        return userService.findRoleAll();
-    }
+	@RequestMapping("/role/delete/{id}")
+	public HttpStatus deleteRoleById(@PathVariable long id) {
+		LOGGER.info("api /user/role/delete/{id} hit with id={}", id);
+		userService.deleteRoleById(id);
+		return HttpStatus.OK;
+	}
 
-    @GetMapping("/{id}")
-    public User findById(@PathVariable long id) {
-        LOGGER.info("api /user/find/{id} hit with id={}", id);
-        return userService.findById(id);
-    }
+	@GetMapping("/roles")
+	public List<Role> findRoleAll() {
+		LOGGER.info("api /user/find/All");
+		return userService.findRoleAll();
+	}
 
-    @GetMapping("/findByUsername/{username}")
-    public User findByUsername(@PathVariable String username) {
-        LOGGER.info("api /user/findByUsername/{username} hit with username={}", username);
-        return userService.findByUsername(username);
-    }
+	@GetMapping("/{id}")
+	public User findById(@PathVariable long id) {
+		LOGGER.info("api /user/find/{id} hit with id={}", id);
+		return userService.findById(id);
+	}
 
-    @GetMapping("/save")
-    public User save(@RequestBody User user) {
-        LOGGER.info("api /user/save hit with user={}", user);
-        return userService.save(user);
-    }
+	@GetMapping("/findByUsername/{username}")
+	public User findByUsername(@PathVariable String username) {
+		LOGGER.info("api /user/findByUsername/{username} hit with username={}", username);
+		return userService.findByUsername(username);
+	}
 
-    @GetMapping("/role/save")
-    public Role saveRole(@RequestBody Role role) {
-        LOGGER.info("api /user/role/save hit with role={}", role);
-        return userService.saveRole(role);
-    }
+	@GetMapping("/save")
+	public User save(@RequestBody User user) {
+		LOGGER.info("api /user/save hit with user={}", user);
+		return userService.save(user);
+	}
+
+	@GetMapping("/role/save")
+	public Role saveRole(@RequestBody Role role) {
+		LOGGER.info("api /user/role/save hit with role={}", role);
+		return userService.saveRole(role);
+	}
+
 }

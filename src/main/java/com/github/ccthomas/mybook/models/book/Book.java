@@ -16,43 +16,46 @@ import java.util.stream.Collectors;
  */
 @Entity
 public class Book {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String title;
-    @OneToMany(cascade = CascadeType.ALL)
-    List<ExternalLink> externalLinks;
 
-    public Long getId() {
-        return id;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	private String title;
 
-    public String getTitle() {
-        return title;
-    }
+	@OneToMany(cascade = CascadeType.ALL)
+	List<ExternalLink> externalLinks;
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public List<ExternalLink> getExternalLinks() {
-        return externalLinks;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setExternalLinks(List<ExternalLink> externalLinks) {
-        this.externalLinks = externalLinks;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", externalLinks=" + (externalLinks == null ? null : externalLinks.stream().map(el -> el.toString()).collect(Collectors.joining(",", "[", "]"))) +
-                '}';
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public List<ExternalLink> getExternalLinks() {
+		return externalLinks;
+	}
+
+	public void setExternalLinks(List<ExternalLink> externalLinks) {
+		this.externalLinks = externalLinks;
+	}
+
+	@Override
+	public String toString() {
+		return "Book{" + "id=" + id + ", title='" + title + '\'' + ", externalLinks="
+				+ (externalLinks == null ? null
+						: externalLinks.stream().map(el -> el.toString()).collect(Collectors.joining(",", "[", "]")))
+				+ '}';
+	}
+
 }

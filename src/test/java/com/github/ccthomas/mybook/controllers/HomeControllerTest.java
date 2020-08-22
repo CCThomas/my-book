@@ -7,14 +7,15 @@ import static org.junit.Assert.assertEquals;
 
 public class HomeControllerTest {
 
-    HomeController homeController;
+	HomeController homeController;
 
-    @Test
-    public void index() {
-        // setup
-        homeController = new HomeController();
+	@Test
+	public void index() {
+		// setup
+		homeController = new HomeController();
 
-        // exercise & verify
-        assertEquals("Welcome to myBook!", homeController.index());
-    }
+		// exercise & verify
+		assertEquals("Welcome to myBook!", homeController.index());
+	}
+
 }

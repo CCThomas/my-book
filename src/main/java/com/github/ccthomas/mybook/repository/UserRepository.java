@@ -14,17 +14,16 @@ import java.util.Optional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    /**
-     * Find {@link User} by username.
-     *
-     * @return {@link Optional} {@link User}.
-     */
-    Optional<User> findByUsername(String username);
+	/**
+	 * Find {@link User} by username.
+	 * @return {@link Optional} {@link User}.
+	 */
+	Optional<User> findByUsername(String username);
 
-    /**
-     * Find {@link User} with the highest id value.
-     *
-     * @return {@link Optional} {@link User}.
-     */
-    Optional<User> findFirstByOrderByIdDesc();
+	/**
+	 * Find {@link User} with the highest id value.
+	 * @return {@link Optional} {@link User}.
+	 */
+	Optional<User> findFirstByOrderByIdDesc();
+
 }

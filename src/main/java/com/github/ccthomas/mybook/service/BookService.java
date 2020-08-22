@@ -13,45 +13,44 @@ import org.springframework.stereotype.Service;
 @Service
 public interface BookService {
 
-    /**
-     * Delete a {@link Book} by id.
-     *
-     * @param id {@link Book}'s id.
-     */
-    void deleteById(long id);
+	/**
+	 * Delete a {@link Book} by id.
+	 * @param id {@link Book}'s id.
+	 */
+	void deleteById(long id);
 
-    /**
-     * Finds a {@link Book} by id.
-     *
-     * @param id {@link Book}'s id.
-     * @return {@link Book} for given id.
-     */
-    Book findById(long id);
+	/**
+	 * Finds a {@link Book} by id.
+	 * @param id {@link Book}'s id.
+	 * @return {@link Book} for given id.
+	 */
+	Book findById(long id);
 
-    /**
-     * Add {@link Role} access to an {@link com.github.ccthomas.mybook.models.book.ExternalLink}
-     *
-     * @param externalLinkId {@link com.github.ccthomas.mybook.models.book.ExternalLink} id
-     * @param roleId {@link Role} id
-     * @return {@link ExternalLink}
-     */
-    ExternalLink roleAccessAdd(long externalLinkId, long roleId);
+	/**
+	 * Add {@link Role} access to an
+	 * {@link com.github.ccthomas.mybook.models.book.ExternalLink}
+	 * @param externalLinkId {@link com.github.ccthomas.mybook.models.book.ExternalLink}
+	 * id
+	 * @param roleId {@link Role} id
+	 * @return {@link ExternalLink}
+	 */
+	ExternalLink roleAccessAdd(long externalLinkId, long roleId);
 
-    /**
-     * Remove {@link Role} access to an {@link com.github.ccthomas.mybook.models.book.ExternalLink}
-     *
-     * @param externalLinkId {@link com.github.ccthomas.mybook.models.book.ExternalLink} id
-     * @param roleId {@link Role} id
-     * @return {@link ExternalLink}
-     */
-    ExternalLink roleAccessRemove(long externalLinkId, long roleId);
+	/**
+	 * Remove {@link Role} access to an
+	 * {@link com.github.ccthomas.mybook.models.book.ExternalLink}
+	 * @param externalLinkId {@link com.github.ccthomas.mybook.models.book.ExternalLink}
+	 * id
+	 * @param roleId {@link Role} id
+	 * @return {@link ExternalLink}
+	 */
+	ExternalLink roleAccessRemove(long externalLinkId, long roleId);
 
-    /**
-     * Saves a {@link Book}.
-     *
-     * @param book {@link Book} to persist.
-     * @return Persisted {@link Book}.
-     */
-    Book save(Book book);
+	/**
+	 * Saves a {@link Book}.
+	 * @param book {@link Book} to persist.
+	 * @return Persisted {@link Book}.
+	 */
+	Book save(Book book);
 
 }

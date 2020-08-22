@@ -22,7 +22,8 @@ import java.util.List;
  * Rest API endpoints for api/bookToUser
  *
  * <p>
- * This Controller acts as a bridge between the consumer/UI and the {@link BookToUserService}
+ * This Controller acts as a bridge between the consumer/UI and the
+ * {@link BookToUserService}
  * </p>
  *
  * @author CCThomas
@@ -30,33 +31,36 @@ import java.util.List;
 @RestController
 @RequestMapping("/bookToUser")
 public class BookToUserController {
-    private static Logger LOGGER = LoggerFactory.getLogger(BookToUserController.class);
 
-    @Autowired
-    BookToUserService bookToUserService;
+	private static Logger LOGGER = LoggerFactory.getLogger(BookToUserController.class);
 
-    @GetMapping("/create/{bookId}/{userId}/{roleId}")
-    public BookToUser create(@PathVariable long bookId, @PathVariable long userId, @PathVariable long roleId) {
-        LOGGER.info("api /bookToUser/create/{bookId}/{userId}/{roleId} hit with bookId={}, userId={}, and roleId={}", bookId, userId, roleId);
-        return bookToUserService.create(bookId, userId, roleId);
-    }
+	@Autowired
+	BookToUserService bookToUserService;
 
-    @RequestMapping("/delete/{id}")
-    public HttpStatus deleteById(@PathVariable long id) {
-        LOGGER.info("api /bookToUser/delete/{id} hit with id={}", id);
-        bookToUserService.deleteById(id);
-        return HttpStatus.OK;
-    }
+	@GetMapping("/create/{bookId}/{userId}/{roleId}")
+	public BookToUser create(@PathVariable long bookId, @PathVariable long userId, @PathVariable long roleId) {
+		LOGGER.info("api /bookToUser/create/{bookId}/{userId}/{roleId} hit with bookId={}, userId={}, and roleId={}",
+				bookId, userId, roleId);
+		return bookToUserService.create(bookId, userId, roleId);
+	}
 
-    @GetMapping("/bookToUsers/bookId/{id}")
-    public List<BookToUser> findAllByBookId(@PathVariable long id) {
-        LOGGER.info("api /bookToUser/bookToUsers/bookId/{id} hit with id={}", id);
-        return bookToUserService.findAllByBookId(id);
-    }
+	@RequestMapping("/delete/{id}")
+	public HttpStatus deleteById(@PathVariable long id) {
+		LOGGER.info("api /bookToUser/delete/{id} hit with id={}", id);
+		bookToUserService.deleteById(id);
+		return HttpStatus.OK;
+	}
 
-    @GetMapping("/bookToUsers/userId/{id}")
-    public List<BookToUser> findAllByUserId(@PathVariable long id) {
-        LOGGER.info("api /bookToUser/bookToUsers/userId/{id} hit with id={}", id);
-        return bookToUserService.findAllByUserId(id);
-    }
+	@GetMapping("/bookToUsers/bookId/{id}")
+	public List<BookToUser> findAllByBookId(@PathVariable long id) {
+		LOGGER.info("api /bookToUser/bookToUsers/bookId/{id} hit with id={}", id);
+		return bookToUserService.findAllByBookId(id);
+	}
+
+	@GetMapping("/bookToUsers/userId/{id}")
+	public List<BookToUser> findAllByUserId(@PathVariable long id) {
+		LOGGER.info("api /bookToUser/bookToUsers/userId/{id} hit with id={}", id);
+		return bookToUserService.findAllByUserId(id);
+	}
+
 }

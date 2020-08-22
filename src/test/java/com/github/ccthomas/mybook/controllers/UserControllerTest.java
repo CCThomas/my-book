@@ -20,109 +20,110 @@ import java.util.List;
 
 public class UserControllerTest {
 
-    @InjectMocks
-    UserController userController;
+	@InjectMocks
+	UserController userController;
 
-    @Mock
-    Role role;
+	@Mock
+	Role role;
 
-    @Mock
-    User user;
+	@Mock
+	User user;
 
-    @Mock
-    UserService userService;
+	@Mock
+	UserService userService;
 
-    long id;
+	long id;
 
-    private final String username = "username";
+	private final String username = "username";
 
-    @Before
-    public void before() {
-        MockitoAnnotations.initMocks(this);
-    }
+	@Before
+	public void before() {
+		MockitoAnnotations.initMocks(this);
+	}
 
-    @Test
-    public void delete() {
-        // exercise
-        HttpStatus actual = userController.deleteById(id);
+	@Test
+	public void delete() {
+		// exercise
+		HttpStatus actual = userController.deleteById(id);
 
-        // verify
-        assertEquals(HttpStatus.OK, actual);
-        verify(userService).deleteById(id);
-    }
+		// verify
+		assertEquals(HttpStatus.OK, actual);
+		verify(userService).deleteById(id);
+	}
 
-    @Test
-    public void deleteRole() {
-        // exercise
-        HttpStatus actual = userController.deleteRoleById(id);
+	@Test
+	public void deleteRole() {
+		// exercise
+		HttpStatus actual = userController.deleteRoleById(id);
 
-        // verify
-        assertEquals(HttpStatus.OK, actual);
-        verify(userService).deleteRoleById(id);
-    }
+		// verify
+		assertEquals(HttpStatus.OK, actual);
+		verify(userService).deleteRoleById(id);
+	}
 
-    @Test
-    public void findRoleAll() {
-        // setup
-        when(userService.findRoleAll()).thenReturn(List.of(role));
+	@Test
+	public void findRoleAll() {
+		// setup
+		when(userService.findRoleAll()).thenReturn(List.of(role));
 
-        // exercise
-        List<Role> actual = userController.findRoleAll();
+		// exercise
+		List<Role> actual = userController.findRoleAll();
 
-        // verify
-        assertEquals(List.of(role), actual);
-        verify(userService).findRoleAll();
-    }
+		// verify
+		assertEquals(List.of(role), actual);
+		verify(userService).findRoleAll();
+	}
 
-    @Test
-    public void findById() {
-        // setup
-        when(userService.findById(id)).thenReturn(user);
+	@Test
+	public void findById() {
+		// setup
+		when(userService.findById(id)).thenReturn(user);
 
-        // exercise
-        User actual = userController.findById(id);
+		// exercise
+		User actual = userController.findById(id);
 
-        // verify
-        assertEquals(user, actual);
-        verify(userService).findById(id);
-    }
+		// verify
+		assertEquals(user, actual);
+		verify(userService).findById(id);
+	}
 
-    @Test
-    public void findByUsername() {
-        // setup
-        when(userService.findByUsername(username)).thenReturn(user);
+	@Test
+	public void findByUsername() {
+		// setup
+		when(userService.findByUsername(username)).thenReturn(user);
 
-        // exercise
-        User actual = userController.findByUsername(username);
+		// exercise
+		User actual = userController.findByUsername(username);
 
-        // verify
-        assertEquals(user, actual);
-        verify(userService).findByUsername(username);
-    }
+		// verify
+		assertEquals(user, actual);
+		verify(userService).findByUsername(username);
+	}
 
-    @Test
-    public void save() {
-        // setup
-        when(userService.save(user)).thenReturn(user);
+	@Test
+	public void save() {
+		// setup
+		when(userService.save(user)).thenReturn(user);
 
-        // exercise
-        User actual = userController.save(user);
+		// exercise
+		User actual = userController.save(user);
 
-        // verify
-        assertEquals(user, actual);
-        verify(userService).save(user);
-    }
+		// verify
+		assertEquals(user, actual);
+		verify(userService).save(user);
+	}
 
-    @Test
-    public void saveRole() {
-        // setup
-        when(userService.saveRole(role)).thenReturn(role);
+	@Test
+	public void saveRole() {
+		// setup
+		when(userService.saveRole(role)).thenReturn(role);
 
-        // exercise
-        Role actual = userController.saveRole(role);
+		// exercise
+		Role actual = userController.saveRole(role);
 
-        // verify
-        assertEquals(role, actual);
-        verify(userService).saveRole(role);
-    }
+		// verify
+		assertEquals(role, actual);
+		verify(userService).saveRole(role);
+	}
+
 }
