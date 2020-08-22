@@ -1,13 +1,11 @@
 # myBook
 Spring Boot Rest Application to help authors manage their books
-
 - [Documentation](#documentation)
 
 ## Documentation
-TODO: Once a Remote Repo is set up, add links.
-
-- [API]()
-  - Documentation for Exposed APIs
+- [API](https://github.com/CCThomas/my-book/blob/main/documentation/API.md)
+- [Developers Guide](https://github.com/CCThomas/my-book/blob/main/documentation/DEVELOPERS-GUIDE.md)
+- [Usage](https://github.com/CCThomas/my-book/blob/main/documentation/USAGE.md)
 
 ## TODO before 0.1.0 Tag
 - Dockerize Application
