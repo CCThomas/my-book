@@ -28,7 +28,7 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(UserController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserController.class);
 
 	@Autowired
 	UserService userService;

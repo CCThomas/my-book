@@ -1,11 +1,5 @@
 package com.github.ccthomas.mybook.controllers;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
 import com.github.ccthomas.mybook.models.user.Role;
 import com.github.ccthomas.mybook.models.user.User;
 import com.github.ccthomas.mybook.service.UserService;
@@ -17,6 +11,10 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class UserControllerTest {
 

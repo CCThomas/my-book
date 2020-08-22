@@ -1,18 +1,15 @@
 package com.github.ccthomas.mybook.configuration;
 
-import com.github.ccthomas.mybook.service.UserService;
-import com.github.ccthomas.mybook.service.impl.UserServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class MyBookConfiguration {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(MyBookConfiguration.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(MyBookConfiguration.class);
 
 	@Autowired
 	private ApplicationArguments args;

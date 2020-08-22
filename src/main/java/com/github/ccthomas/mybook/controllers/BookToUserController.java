@@ -1,19 +1,14 @@
 package com.github.ccthomas.mybook.controllers;
 
 import com.github.ccthomas.mybook.models.association.BookToUser;
-import com.github.ccthomas.mybook.models.book.Book;
-import com.github.ccthomas.mybook.service.BookService;
 import com.github.ccthomas.mybook.service.BookToUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -32,7 +27,7 @@ import java.util.List;
 @RequestMapping("/bookToUser")
 public class BookToUserController {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(BookToUserController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(BookToUserController.class);
 
 	@Autowired
 	BookToUserService bookToUserService;

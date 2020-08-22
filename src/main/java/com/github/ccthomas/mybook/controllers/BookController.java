@@ -3,7 +3,6 @@ package com.github.ccthomas.mybook.controllers;
 import com.github.ccthomas.mybook.models.book.Book;
 import com.github.ccthomas.mybook.models.book.ExternalLink;
 import com.github.ccthomas.mybook.service.BookService;
-import com.github.ccthomas.mybook.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/book")
 public class BookController {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(BookController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(BookController.class);
 
 	@Autowired
 	BookService bookService;

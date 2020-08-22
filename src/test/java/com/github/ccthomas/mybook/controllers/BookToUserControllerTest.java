@@ -1,8 +1,6 @@
 package com.github.ccthomas.mybook.controllers;
 
 import com.github.ccthomas.mybook.models.association.BookToUser;
-import com.github.ccthomas.mybook.models.book.Book;
-import com.github.ccthomas.mybook.service.BookService;
 import com.github.ccthomas.mybook.service.BookToUserService;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,9 +8,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -76,7 +71,7 @@ public class BookToUserControllerTest {
 		when(bookToUserService.findAllByUserId(userId)).thenReturn(List.of(bookToUser));
 
 		// exercise & verify
-		assertEquals(List.of(bookToUser), bookToUserController.findAllByUserId(bookId));
+		assertEquals(List.of(bookToUser), bookToUserController.findAllByUserId(userId));
 	}
 
 }

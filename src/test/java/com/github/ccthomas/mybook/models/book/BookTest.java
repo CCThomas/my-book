@@ -1,6 +1,5 @@
 package com.github.ccthomas.mybook.models.book;
 
-import org.assertj.core.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

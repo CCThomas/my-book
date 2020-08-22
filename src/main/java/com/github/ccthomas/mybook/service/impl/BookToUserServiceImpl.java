@@ -14,13 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class BookToUserServiceImpl implements BookToUserService {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(BookServiceImpl.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(BookServiceImpl.class);
 
 	@Autowired
 	BookToUserRepository bookToUserRepository;
