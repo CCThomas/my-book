@@ -1,6 +1,7 @@
 package com.github.ccthomas.mybook.controllers;
 
 import com.github.ccthomas.mybook.models.book.Book;
+import com.github.ccthomas.mybook.models.book.ExternalLink;
 import com.github.ccthomas.mybook.service.BookService;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,9 +23,14 @@ public class BookControllerTest {
     Book book;
 
     @Mock
+    ExternalLink externalLink;
+
+    @Mock
     BookService bookService;
 
-    long id;
+    long id = 1L;
+    long externalId = 2L;
+    long roleId = 3L;
 
     @Before
     public void before() {
@@ -52,6 +58,30 @@ public class BookControllerTest {
         // verify
         assertEquals(book, actual);
         verify(bookService).findById(id);
+    }
+
+    @Test
+    public void roleAccessAdd() {
+        // setup
+        when(bookService.roleAccessAdd(externalId, roleId)).thenReturn(externalLink);
+
+        // exercise
+        ExternalLink actual = bookController.roleAccessAdd(externalId, roleId);
+
+        // verify
+        assertEquals(externalLink, actual);
+    }
+
+    @Test
+    public void roleAccessRemove() {
+        // setup
+        when(bookService.roleAccessRemove(externalId, roleId)).thenReturn(externalLink);
+
+        // exercise
+        ExternalLink actual = bookController.roleAccessRemove(externalId, roleId);
+
+        // verify
+        assertEquals(externalLink, actual);
     }
 
     @Test

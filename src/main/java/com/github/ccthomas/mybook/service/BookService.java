@@ -1,6 +1,8 @@
 package com.github.ccthomas.mybook.service;
 
 import com.github.ccthomas.mybook.models.book.Book;
+import com.github.ccthomas.mybook.models.book.ExternalLink;
+import com.github.ccthomas.mybook.models.user.Role;
 import org.springframework.stereotype.Service;
 
 /**
@@ -25,6 +27,24 @@ public interface BookService {
      * @return {@link Book} for given id.
      */
     Book findById(long id);
+
+    /**
+     * Add {@link Role} access to an {@link com.github.ccthomas.mybook.models.book.ExternalLink}
+     *
+     * @param externalLinkId {@link com.github.ccthomas.mybook.models.book.ExternalLink} id
+     * @param roleId {@link Role} id
+     * @return {@link ExternalLink}
+     */
+    ExternalLink roleAccessAdd(long externalLinkId, long roleId);
+
+    /**
+     * Remove {@link Role} access to an {@link com.github.ccthomas.mybook.models.book.ExternalLink}
+     *
+     * @param externalLinkId {@link com.github.ccthomas.mybook.models.book.ExternalLink} id
+     * @param roleId {@link Role} id
+     * @return {@link ExternalLink}
+     */
+    ExternalLink roleAccessRemove(long externalLinkId, long roleId);
 
     /**
      * Saves a {@link Book}.

@@ -1,6 +1,7 @@
 package com.github.ccthomas.mybook.controllers;
 
 import com.github.ccthomas.mybook.models.book.Book;
+import com.github.ccthomas.mybook.models.book.ExternalLink;
 import com.github.ccthomas.mybook.service.BookService;
 import com.github.ccthomas.mybook.service.UserService;
 import org.slf4j.Logger;
@@ -41,6 +42,18 @@ public class BookController {
     public Book findById(@PathVariable long id) {
         LOGGER.info("api /book/find/{id} hit with id={}", id);
         return bookService.findById(id);
+    }
+
+    @GetMapping("/roleAccess/add/{externalAccessId}/{roleId}")
+    public ExternalLink roleAccessAdd(@PathVariable long externalAccessId, @PathVariable long roleId) {
+        LOGGER.info("api /book/roleAccess/add/{externalAccessId}/{roleId} hit with externalAccessId={} and roleId={}", externalAccessId, roleId);
+        return bookService.roleAccessAdd(externalAccessId, roleId);
+    }
+
+    @GetMapping("/roleAccess/remove/{externalAccessId}/{roleId}")
+    public ExternalLink roleAccessRemove(@PathVariable long externalAccessId, @PathVariable long roleId) {
+        LOGGER.info("api /book/roleAccess/remove/{externalAccessId}/{roleId} hit with externalAccessId={} and roleId={}", externalAccessId, roleId);
+        return bookService.roleAccessRemove(externalAccessId, roleId);
     }
 
     @GetMapping("/save")
