@@ -33,12 +33,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/book/save",
+							"raw": "http://{{base_url}}:{{port}}/book/save",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8081",
+							"port": "{{port}}",
 							"path": [
 								"book",
 								"save"
@@ -54,12 +54,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/book/{id}",
+							"raw": "http://{{base_url}}:{{port}}/book/{id}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8081",
+							"port": "{{port}}",
 							"path": [
 								"book",
 								"{id}"
@@ -75,12 +75,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/book/roleAccess/add/{externalAccessId}/{roleId}",
+							"raw": "http://{{base_url}}:{{port}}/book/roleAccess/add/{externalAccessId}/{roleId}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8081",
+							"port": "{{port}}",
 							"path": [
 								"book",
 								"roleAccess",
@@ -99,12 +99,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/book/roleAccess/remove/{externalAccessId}/{roleId}",
+							"raw": "http://{{base_url}}:{{port}}/book/roleAccess/remove/{externalAccessId}/{roleId}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8081",
+							"port": "{{port}}",
 							"path": [
 								"book",
 								"roleAccess",
@@ -122,12 +122,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/book/delete/{id}",
+							"raw": "http://{{base_url}}:{{port}}/book/delete/{id}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8081",
+							"port": "{{port}}",
 							"path": [
 								"book",
 								"delete",
@@ -149,12 +149,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/user/delete/{id}",
+							"raw": "http://{{base_url}}:{{port}}/user/delete/{id}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8081",
+							"port": "{{port}}",
 							"path": [
 								"user",
 								"delete",
@@ -170,12 +170,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/user/role/delete/{id}",
+							"raw": "http://{{base_url}}:{{port}}/user/role/delete/{id}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8081",
+							"port": "{{port}}",
 							"path": [
 								"user",
 								"role",
@@ -192,12 +192,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/user/roles",
+							"raw": "http://{{base_url}}:{{port}}/user/roles",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8081",
+							"port": "{{port}}",
 							"path": [
 								"user",
 								"roles"
@@ -212,12 +212,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/user/{id}",
+							"raw": "http://{{base_url}}:{{port}}/user/{id}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8081",
+							"port": "{{port}}",
 							"path": [
 								"user",
 								"{id}"
@@ -232,12 +232,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/user/findByUsername/{username}",
+							"raw": "http://l{{base_url}}:{{port}}/user/findByUsername/{username}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"l{{base_url}}"
 							],
-							"port": "8081",
+							"port": "{{port}}",
 							"path": [
 								"user",
 								"findByUsername",
@@ -260,12 +260,12 @@
 							"raw": "{\n    \"username\": \"username\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8081/user/save",
+							"raw": "http://{{base_url}}:{{port}}/user/save",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8081",
+							"port": "{{port}}",
 							"path": [
 								"user",
 								"save"
@@ -287,12 +287,12 @@
 							"raw": "{\n    \"title\": \"username\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8081/user/role/save",
+							"raw": "http://{{base_url}}:{{port}}/user/role/save",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8081",
+							"port": "{{port}}",
 							"path": [
 								"user",
 								"role",
@@ -314,12 +314,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/bookToUser/create/{bookId}/{userId}/{roleId}",
+							"raw": "http://{{base_url}}:{{port}}/bookToUser/create/{bookId}/{userId}/{roleId}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8081",
+							"port": "{{port}}",
 							"path": [
 								"bookToUser",
 								"create",
@@ -337,12 +337,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/bookToUser/delete/{Id}",
+							"raw": "http://{{base_url}}:{{port}}/bookToUser/delete/{Id}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8081",
+							"port": "{{port}}",
 							"path": [
 								"bookToUser",
 								"delete",
@@ -358,12 +358,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/bookToUser/bookToUsers/bookId/{Id}",
+							"raw": "http://{{base_url}}:{{port}}/bookToUser/bookToUsers/bookId/{Id}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8081",
+							"port": "{{port}}",
 							"path": [
 								"bookToUser",
 								"bookToUsers",
@@ -380,12 +380,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/bookToUser/bookToUsers/userId/{Id}",
+							"raw": "http://{{base_url}}:{{port}}/bookToUser/bookToUsers/userId/{Id}",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8081",
+							"port": "{{port}}",
 							"path": [
 								"bookToUser",
 								"bookToUsers",
@@ -398,6 +398,93 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Root APIs",
+			"item": [
+				{
+					"name": "Index",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"title\",\n  \"externalLinks\": [\n      {\n          \"name\": \"name\",\n          \"link\": \"link\"\n      }\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{base_url}}:{{port}}/?",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "username",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e68a515c-1603-446d-ab60-a81fbd8b33a2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "0233f1b1-6b2b-4c94-9573-9de769e70cd7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "1126afab-ac5d-4aa6-be7c-a7137447e836",
+			"key": "base_url",
+			"value": "localhost",
+			"type": "string"
+		},
+		{
+			"id": "582feec2-9250-4d28-a543-52f9770561fc",
+			"key": "port",
+			"value": "8081",
+			"type": "string"
 		}
 	],
 	"protocolProfileBehavior": {}
