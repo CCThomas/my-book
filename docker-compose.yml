@@ -20,7 +20,26 @@ services:
       SPRING_DATASOURCE_USERNAME: author
       SPRING_DATASOURCE_PASSWORD: password
     networks: # Networks to join (Services on the same network can communicate with each other using their name)
+      - backend-network
+      - frontend-network
+
+  # Frontend Service
+  frontend:
+    # container_name: sample
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    restart: always
+    depends_on:
       - backend
+    ports:
+      - 3000:3000
+    stdin_open: true
+    networks: # Networks to join (Services on the same network can communicate with each other using their name)
+      - frontend-network
 
   # Database Service (Mysql)
   db:
@@ -36,7 +55,7 @@ services:
     volumes:
       - db-data:/var/lib/mysql
     networks:
-      - backend
+      - backend-network
 
 # Volumes
 volumes:
@@ -44,4 +63,5 @@ volumes:
 
 # Networks to be created to facilitate communication between containers
 networks:
-  backend:
+  backend-network:
+  frontend-network:

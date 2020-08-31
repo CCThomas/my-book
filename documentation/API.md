@@ -1,5 +1,10 @@
 # API Documentation
 
+## Home API
+- `/?username={username}`
+  - Returns "Welcome to myBook!"
+  - If username is provide, will insert username into the reply string.
+
 ## Book APIs
 Book JSON
 ```JSON
@@ -37,6 +42,7 @@ Book JSON
 - `/book/save`
   - Saves a Book
   - Request Body: Book JSON.
+
 ## Book To User APIs
 Book To User JSON
 ```JSON

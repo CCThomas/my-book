@@ -14,7 +14,7 @@ public class HomeControllerTest {
 		homeController = new HomeController();
 
 		// exercise & verify
-		assertEquals("Welcome to myBook!", homeController.index());
+		assertEquals("Welcome to myBook!", homeController.index(""));
 	}
 
 }
