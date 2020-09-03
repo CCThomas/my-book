@@ -2,10 +2,13 @@ package com.github.ccthomas.mybook.models.book;
 
 import com.github.ccthomas.mybook.models.user.Role;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,7 +29,7 @@ public class ExternalLink {
 
 	private String link;
 
-	@OneToMany
+	@ManyToMany
 	private List<Role> roleAccess;
 
 	public ExternalLink() {
