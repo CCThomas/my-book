@@ -61,16 +61,10 @@ public class UserController {
 		return userService.findById(id);
 	}
 
-	@GetMapping("/findByUsername/{username}")
-	public User findByUsername(@PathVariable String username) {
-		LOGGER.info("api /user/findByUsername/{username} hit with username={}", username);
-		return userService.findByUsername(username);
-	}
-
-	@GetMapping("/save")
-	public User save(@RequestBody User user) {
-		LOGGER.info("api /user/save hit with user={}", user);
-		return userService.save(user);
+	@GetMapping("/find/{email}/{provider}")
+	public User findByEmailAndProvider(@PathVariable String email, @PathVariable String provider) {
+		LOGGER.info("api /user/find/{email}/{provider} hit with email={} and provider", email, provider);
+		return userService.findByEmailAndProvider(email, provider);
 	}
 
 	@GetMapping("/role/save")

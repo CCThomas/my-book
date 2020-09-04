@@ -14,9 +14,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceAuth0 implements UserService {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceAuth0.class);
 
 	@Autowired
 	private RoleRepository roleRepository;
@@ -71,23 +71,31 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User findByUsername(String username) {
-		LOGGER.info("Finding user with username={}", username);
-		Optional<User> optionalUser = userRepository.findByUsername(username);
-		if (optionalUser.isEmpty()) {
-			LOGGER.info("User does not exist for username=" + username);
-			return null;
+	public User findByEmailAndProvider(String email, String provider) {
+		LOGGER.info("Finding user with email={} and provider={}", email, provider);
+		if (email == null || email.isBlank() || provider == null || provider.isBlank()) {
+			throw new IllegalStateException(
+					"Email or Provider is null, empty, or blank. email=" + email + " and provider=" + provider);
 		}
 
-		User user = optionalUser.get();
+		List<User> users = userRepository.findAllByEmailAndProvider(email, provider);
+		User user;
+		if (users.size() == 1) {
+			user = users.get(0);
+		}
+		else if (users.isEmpty()) {
+			LOGGER.info("No User exists for email={} amd provider={}", email, provider);
+			user = new User();
+			user.setEmail(email);
+			user.setProvider(provider);
+			LOGGER.info("Creating new user={}", user);
+			user = userRepository.save(user);
+		}
+		else {
+			throw new IllegalStateException("Multiple Users exist for email=" + email + " and provider=" + provider);
+		}
 		LOGGER.info("returning user={}", user);
 		return user;
-	}
-
-	@Override
-	public User save(User user) {
-		LOGGER.info("Saving user={}", user);
-		return userRepository.save(user);
 	}
 
 	@Override

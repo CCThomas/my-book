@@ -47,18 +47,12 @@ public interface UserService {
 	Role findRoleById(long id);
 
 	/**
-	 * Finds a {@link User} by username.
-	 * @param username {@link User}'s username
-	 * @return {@link User} for given username.
+	 * Finds a {@link User}s by email and provider.
+	 * @param email {@link String} {@link User}'s email.
+	 * @param provider {@link String} {@link User}'s provider.
+	 * @return {@link User}.
 	 */
-	User findByUsername(String username);
-
-	/**
-	 * Saves a {@link User}.
-	 * @param user {@link User} to persist.
-	 * @return Persisted {@link User}.
-	 */
-	User save(User user);
+	User findByEmailAndProvider(String email, String provider);
 
 	/**
 	 * Saves a {@link Role}.

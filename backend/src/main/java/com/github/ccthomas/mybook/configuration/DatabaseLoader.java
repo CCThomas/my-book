@@ -83,21 +83,10 @@ public class DatabaseLoader {
 		userRepository.deleteAll();
 
 		LOGGER.info("Loading Users...");
-		User author1 = new User();
-		author1.setUsername("TheAmazingAuthor1");
-		author1 = userService.save(author1);
-
-		User author2 = new User();
-		author2.setUsername("TheAstonishingAuthor2");
-		author2 = userService.save(author2);
-
-		User editor = new User();
-		editor.setUsername("TheExtraordinaryEditor");
-		editor = userService.save(editor);
-
-		User publisher = new User();
-		publisher.setUsername("ThePerfectPublisher");
-		publisher = userService.save(publisher);
+		User author1 = userService.findByEmailAndProvider("TheAmazingAuthor1@email.com", "internal");
+		User author2 = userService.findByEmailAndProvider("TheAstonishingAuthor2@email.com", "internal");
+		User editor = userService.findByEmailAndProvider("TheExtraordinaryEditor@email.com", "internal");
+		User publisher = userService.findByEmailAndProvider("ThePerfectPublisher@email.com", "internal");
 
 		LOGGER.info("Loading Roles...");
 		Role authorRole = new Role();

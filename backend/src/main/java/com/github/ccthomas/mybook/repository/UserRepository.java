@@ -4,6 +4,7 @@ import com.github.ccthomas.mybook.models.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -15,15 +16,11 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Long> {
 
 	/**
-	 * Find {@link User} by username.
-	 * @return {@link Optional} {@link User}.
+	 * Finds all {@link User}s by email and provider.
+	 * @param email {@link String} {@link User}'s email.
+	 * @param provider {@link String} {@link User}'s provider.
+	 * @return {@link List} of {@link User}.
 	 */
-	Optional<User> findByUsername(String username);
-
-	/**
-	 * Find {@link User} with the highest id value.
-	 * @return {@link Optional} {@link User}.
-	 */
-	Optional<User> findFirstByOrderByIdDesc();
+	List<User> findAllByEmailAndProvider(String email, String provider);
 
 }

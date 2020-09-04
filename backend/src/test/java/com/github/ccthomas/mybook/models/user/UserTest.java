@@ -8,7 +8,9 @@ public class UserTest {
 
 	private final Long id = 1l;
 
-	private final String username = "username";
+	private final String email = "email";
+
+	private final String provider = "provider";
 
 	@Test
 	public void getSetId() {
@@ -23,21 +25,33 @@ public class UserTest {
 	}
 
 	@Test
-	public void getSetUsername() {
+	public void getSetEmail() {
 		// setup
 		User user = new User();
 
 		// exercise
-		user.setUsername(username);
+		user.setEmail(email);
 
 		// verify
-		assertEquals(username, user.getUsername());
+		assertEquals(email, user.getEmail());
+	}
+
+	@Test
+	public void getSetProvider() {
+		// setup
+		User user = new User();
+
+		// exercise
+		user.setProvider(provider);
+
+		// verify
+		assertEquals(provider, user.getProvider());
 	}
 
 	@Test
 	public void toString_empty() {
 		// setup
-		String expected = "User{id=null, username='null'}";
+		String expected = "User{id=null, email='null', provider='null'}";
 		User user = new User();
 
 		// exercise & verify
@@ -47,10 +61,11 @@ public class UserTest {
 	@Test
 	public void toString_populated() {
 		// setup
-		String expected = "User{id=1, username='username'}";
+		String expected = "User{id=1, email='email', provider='provider'}";
 		User user = new User();
 		user.setId(id);
-		user.setUsername(username);
+		user.setEmail(email);
+		user.setProvider(provider);
 
 		// exercise & verify
 		assertEquals(expected, user.toString());

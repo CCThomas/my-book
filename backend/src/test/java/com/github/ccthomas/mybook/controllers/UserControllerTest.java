@@ -32,7 +32,9 @@ public class UserControllerTest {
 
 	long id;
 
-	private final String username = "username";
+	private final String email = "email";
+
+	private final String provider = "provider";
 
 	@Before
 	public void before() {
@@ -86,29 +88,16 @@ public class UserControllerTest {
 	}
 
 	@Test
-	public void findByUsername() {
+	public void findByEmailAndProvider() {
 		// setup
-		when(userService.findByUsername(username)).thenReturn(user);
+		when(userService.findByEmailAndProvider(email, provider)).thenReturn(user);
 
 		// exercise
-		User actual = userController.findByUsername(username);
+		User actual = userController.findByEmailAndProvider(email, provider);
 
 		// verify
 		assertEquals(user, actual);
-		verify(userService).findByUsername(username);
-	}
-
-	@Test
-	public void save() {
-		// setup
-		when(userService.save(user)).thenReturn(user);
-
-		// exercise
-		User actual = userController.save(user);
-
-		// verify
-		assertEquals(user, actual);
-		verify(userService).save(user);
+		verify(userService).findByEmailAndProvider(email, provider);
 	}
 
 	@Test

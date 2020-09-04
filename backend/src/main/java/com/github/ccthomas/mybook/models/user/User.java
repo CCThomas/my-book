@@ -10,6 +10,9 @@ import javax.persistence.Id;
 
 /**
  * Entity representing a User
+ * <p>
+ * Users are provided from an External Provider. This User entity is used to map to the
+ * providers User.
  *
  * @author CCThomas
  */
@@ -20,9 +23,9 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(unique = true)
-	@NotNull
-	private String username;
+	private String email;
+
+	private String provider;
 
 	public User() {
 	}
@@ -35,17 +38,25 @@ public class User {
 		this.id = id;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getProvider() {
+		return provider;
+	}
+
+	public void setProvider(String provider) {
+		this.provider = provider;
 	}
 
 	@Override
 	public String toString() {
-		return "User{" + "id=" + id + ", username='" + username + '\'' + '}';
+		return "User{" + "id=" + id + ", email='" + email + '\'' + ", provider='" + provider + '\'' + '}';
 	}
 
 }
